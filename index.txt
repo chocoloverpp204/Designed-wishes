@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08091c">
+<title>For Dearest Koko Ahmed ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #08091c;
+  --panel: rgba(23, 23, 53, 0.78);
+  --purple: #b9a0ff;
+  --pink: #ffb8d5;
+  --white: #fff7ff;
+  --muted: #c4c0db;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at 15% 10%, #28204d 0%, transparent 38%),
+    radial-gradient(ellipse at 90% 60%, #291737 0%, transparent 35%),
+    var(--bg);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  line-height: 1.85;
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 5px;
+}
+
+.page {
+  width: min(880px, 100%);
+  margin: auto;
+  padding: 24px 20px 55px;
+}
+
+.center {
+  text-align: center;
+}
+
+.small-label {
+  color: var(--pink);
+  font-size: 0.73rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h1, h2, h3, .serif {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  line-height: 1.05;
+  margin: 22px 0;
+  color: var(--white);
+}
+
+h2 {
+  font-size: clamp(2rem, 7vw, 3.3rem);
+  line-height: 1.2;
+  margin: 12px 0 20px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+p {
+  color: var(--muted);
+  margin: 12px 0;
+}
+
+.heart {
+  color: var(--pink);
+}
+
+.glow {
+  text-shadow: 0 0 28px rgba(185, 160, 255, 0.28);
+}
+
+.intro {
+  min-height: 91vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 35px 0;
+}
+
+.intro .subtitle {
+  max-width: 520px;
+  margin-bottom: 30px;
+}
+
+.ornament {
+  color: var(--pink);
+  letter-spacing: 10px;
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 23px;
+  border: 1px solid rgba(214, 190, 255, 0.5);
+  border-radius: 50px;
+  background: linear-gradient(
+    135deg,
+    rgba(126, 94, 181, 0.35),
+    rgba(207, 112, 166, 0.22)
+  );
+  color: var(--white);
+  cursor: pointer;
+  transition: 0.25s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--pink);
+  box-shadow: 0 0 25px rgba(255, 184, 213, 0.13);
+}
+
+.section {
+  padding: 75px 0 25px;
+  scroll-margin-top: 25px;
+}
+
+.greeting {
+  padding: 35px 23px;
+  border: 1px solid rgba(185, 160, 255, 0.23);
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(37, 32, 74, 0.72),
+    rgba(32, 20, 48, 0.66)
+  );
+  box-shadow: 0 18px 70px rgba(0, 0, 0, 0.15);
+}
+
+.greeting p {
+  max-width: 650px;
+  margin: 15px auto;
+}
+
+.divider {
+  width: 90px;
+  height: 1px;
+  margin: 24px auto;
+  background: linear-gradient(90deg, transparent, var(--pink), transparent);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.surprise-card {
+  min-height: 215px;
+  padding: 22px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(185, 160, 255, 0.23);
+  background: var(--panel);
+  color: var(--white);
+  cursor: pointer;
+  transition: 0.25s ease;
+  text-align: center;
+}
+
+.surprise-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--pink);
+}
+
+.card-icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.surprise-card h3 {
+  margin-bottom: 8px;
+}
+
+.card-hint {
+  font-size: 0.78rem;
+  color: var(--pink);
+}
+
+.card-message {
+  display: none;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.surprise-card.open .card-message {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+
+.surprise-card.open .card-hint {
+  display: none;
+}
+
+.letter-box {
+  padding: 30px 25px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 184, 213, 0.23);
+  background: rgba(24, 19, 43, 0.78);
+}
+
+.letter-content {
+  display: none;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.letter-content.show {
+  display: block;
+  animation: fadeIn 0.65s ease;
+}
+
+.letter-content p {
+  margin: 16px 0;
+  line-height: 2;
+}
+
+.signature {
+  text-align: right;
+  color: var(--pink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  margin-top: 25px;
+}
+
+.final-wish {
+  padding: 55px 23px;
+  margin-top: 50px;
+  border-radius: 25px;
+  border: 1px solid rgba(185, 160, 255, 0.25);
+  background:
+    radial-gradient(ellipse at top, rgba(113, 74, 160, 0.22), transparent 75%),
+    rgba(19, 17, 42, 0.7);
+}
+
+.final-text {
+  max-width: 650px;
+  margin: 22px auto;
+}
+
+.final-line {
+  color: var(--pink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 6vw, 2.7rem);
+  font-style: italic;
+  margin-top: 28px;
+}
+
+footer {
+  text-align: center;
+  padding-top: 60px;
+  color: #a7a1c2;
+  font-size: 0.78rem;
+}
+
+footer .footer-heart {
+  color: var(--pink);
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 650px) {
+  .page {
+    padding: 15px 16px 40px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .surprise-card {
+    min-height: 0;
+    padding: 23px 18px;
+  }
+
+  .letter-box,
+  .greeting {
+    padding: 26px 19px;
+  }
+
+  .section {
+    padding-top: 55px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<main class="page">
+
+  <!-- WELCOME SCREEN -->
+  <section class="intro" id="home">
+    <div class="ornament">✦　♡　✦</div>
+
+    <p class="small-label">A little surprise made just for you</p>
+
+    <h1 class="glow">
+      Dearest<br>
+      <span class="heart">Koko Ahmed</span>
+    </h1>
+
+    <p class="subtitle">
+      Some people are too special for an ordinary birthday wish.
+      So, here's a little world made especially for you. ♡
+    </p>
+
+    <button class="btn" onclick="openSurprise()">
+      Open your surprise ♡
+    </button>
+
+    <p style="font-size:0.8rem; margin-top:25px;">
+      Made with love <span class="heart">♡</span>
+    </p>
+  </section>
+
+  <!-- BIRTHDAY GREETING -->
+  <section class="section center" id="birthday">
+    <p class="small-label">A day just for you</p>
+
+    <div class="greeting">
+      <div class="ornament">✧ ✧ ✧</div>
+
+      <h2 class="glow">Happy Birthday!</h2>
+
+      <h3 class="heart">Dearest Koko Ahmed ♡</h3>
+
+      <div class="divider"></div>
+
+      <p>
+        Today is your special day. May Allah fill your year with
+        happiness, peace, and countless blessings. Ameen. ♡
+      </p>
+
+      <p>
+        Today is a little reminder that someone in this world is
+        wishing you beautiful things with all her heart.
+      </p>
+
+      <div class="ornament" style="margin-top:22px;">♡</div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SURPRISE CARDS -->
+  <section class="section center" id="surprises">
+    <p class="small-label">Three little things for you</p>
+    <h2>Open your little surprises ♡</h2>
+
+    <p>Tap each card to discover its message.</p>
+
+    <div class="cards">
+
+      <button class="surprise-card" onclick="toggleCard(this)"
+        aria-expanded="false">
+        <span class="card-icon">🕊️</span>
+        <h3>A reminder</h3>
+        <span class="card-hint">Tap to open ♡</span>
+        <span class="card-message">
+          Never forget that your life matters, your dreams matter,
+          and you deserve kindness even on the days that feel difficult.
+          Please take good care of yourself.
+        </span>
+      </button>
+
+      <button class="surprise-card" onclick="toggleCard(this)"
+        aria-expanded="false">
+        <span class="card-icon">💌</span>
+        <h3>A few words</h3>
+        <span class="card-hint">Tap to open ♡</span>
+        <span class="card-message">
+          You are someone I appreciate deeply. I hope you keep growing,
+          smiling, learning, and becoming the person you dream of being.
+          I am genuinely wishing the best for you.
+        </span>
+      </button>
+
+      <button class="surprise-card" onclick="toggleCard(this)"
+        aria-expanded="false">
+        <span class="card-icon">🤲🏻</span>
+        <h3>A little dua</h3>
+        <span class="card-hint">Tap to open ♡</span>
+        <span class="card-message">
+          May Allah protect you, guide you towards what is good,
+          grant you peace of heart, bless your health and future,
+          fulfil your sincere duas, and make your difficult days easier.
+          Ameen.
+        </span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- PERSONAL LETTER -->
+  <section class="section center" id="letter">
+    <p class="small-label">Something from my heart</p>
+    <h2>A letter for you ♡</h2>
+
+    <div class="letter-box">
+      <p>
+        Some feelings deserve more than a few words.
+        This little letter is one of them.
+      </p>
+
+      <button class="btn" id="letterButton"
+        onclick="toggleLetter()" aria-expanded="false">
+        Read my letter ♡
+      </button>
+
+      <article class="letter-content" id="letterContent">
+
+        <p>Dearest Koko Ahmed, ♡</p>
+
+        <p>
+          I don't always know how to put my feelings into words,
+          but I wanted to make something special for you.
+          Something you could open and read, knowing that someone
+          genuinely wishes beautiful things for you.
+        </p>
+
+        <p>
+          You are someone very special to me, more than these words
+          could ever fully explain. I appreciate you, I care about you,
+          and I pray that life brings you the happiness and peace
+          you deserve.
+        </p>
+
+        <p>
+          I hope you never forget how valuable you are.
+          Even when life gets difficult, I hope you find the strength
+          to keep going, the courage to follow your dreams, and the
+          patience to trust Allah's plan for you.
+        </p>
+
+        <p>
+          May Allah guide you towards what is best, protect your heart,
+          bless your efforts, and grant you a future filled with goodness.
+          May He answer your sincere duas in the most beautiful ways.
+          Ameen.
+        </p>
+
+        <p>
+          I made this little website because an ordinary birthday
+          message didn't feel like enough. I wanted to give you
+          something you could keep, revisit, and remember.
+        </p>
+
+        <p>
+          Whatever the days ahead may bring, I sincerely hope they
+          bring you reasons to smile. Keep taking care of yourself,
+          keep believing in your dreams, and never forget that
+          you are deeply appreciated.
+        </p>
+
+        <p>
+          Happy Birthday again, my dear Koko Ahmed. ♡
+        </p>
+
+        <p>
+          With all my love,
+        </p>
+
+        <p class="signature">Fathimah ♡</p>
+
+        <div class="divider"></div>
+
+        <p class="center serif" style="font-size:1.5rem; color:#ffb8d5;">
+          The person I hope to never lose, the only hand I wish to hold
+          for the rest of my life.
+        </p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- FINAL BIRTHDAY WISH -->
+  <section class="final-wish center" id="finalWish">
+    <p class="small-label">Before you go...</p>
+
+    <h2 class="glow">One last wish for you ♡</h2>
+
+    <div class="divider"></div>
+
+    <p class="final-text">
+      May this new chapter of your life bring you endless happiness,
+      beautiful memories, and countless reasons to smile. May Allah
+      protect you wherever life takes you, guide every step you take,
+      and grant you the things your heart quietly wishes for. Ameen.
+    </p>
+
+    <p class="final-text">
+      Happy Birthday again, Dearest Koko Ahmed. May your days always
+      be filled with peace, warmth, and blessings.
+    </p>
+
+    <p class="final-text">
+      Love you so much.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="final-line">To the moon and back ♡</p>
+
+    <div class="ornament" style="margin-top:25px;">✦ ♡ ✦</div>
+  </section>
+
+  <footer>
+    <p>
+      Made with love by <span class="heart">Fathimah ♡</span>
+    </p>
+    <p>For someone very special.</p>
+    <p class="footer-heart">♡</p>
+  </footer>
+
+</main>
+
+<script>
+/* OPEN THE SURPRISE */
+function openSurprise() {
+  document.getElementById('birthday').scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+
+/* OPEN AND CLOSE THE SURPRISE CARDS */
+function toggleCard(card) {
+  const isOpen = card.classList.toggle('open');
+  card.setAttribute('aria-expanded', String(isOpen));
+}
+
+/* SHOW OR HIDE THE PERSONAL LETTER */
+function toggleLetter() {
+  const letter = document.getElementById('letterContent');
+  const button = document.getElementById('letterButton');
+
+  const isOpen = letter.classList.toggle('show');
+
+  button.textContent = isOpen
+    ? 'Close my letter ♡'
+    : 'Read my letter ♡';
+
+  button.setAttribute('aria-expanded', String(isOpen));
+}
+
+/* CREATE A GENTLE, TWINKLING STAR FIELD */
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+
+let stars = [];
+let width = 0;
+let height = 0;
+let animationFrame;
+
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width = Math.floor(width * dpr);
+  canvas.height = Math.floor(height * dpr);
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const count = Math.min(
+    180,
+    Math.max(65, Math.floor((width * height) / 8500))
+  );
+
+  stars = Array.from({ length: count }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    radius: Math.random() * 1.5 + 0.3,
+    phase: Math.random() * Math.PI * 2,
+    speed: Math.random() * 0.018 + 0.004
+  }));
+}
+
+function drawStars() {
+  ctx.clearRect(0, 0, width, height);
+
+  for (const star of stars) {
+    star.phase += star.speed;
+
+    const opacity =
+      0.25 + (Math.sin(star.phase) + 1) * 0.3;
+
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(235, 225, 255, ${opacity})`;
+    ctx.fill();
+  }
+
+  animationFrame = requestAnimationFrame(drawStars);
+}
+
+resizeCanvas();
+drawStars();
+
+window.addEventListener('resize', resizeCanvas);
+
+window.addEventListener('pagehide', () => {
+  cancelAnimationFrame(animationFrame);
+});
+</script>
+
+</body>
+</html>
